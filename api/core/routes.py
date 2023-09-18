@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from api.core.enums.http_status import  HttpStatus
 from api.core.response.types import PayloadResponse
+from api.core.utils import TksRequest
 
 
 bp = Blueprint('core',__name__)
@@ -21,6 +22,10 @@ api_payload_get = {
 @bp.route('/ingest', methods=['POST'])
 def ingest():
     #TODO: Realizar a implementação da lógica para a captura dinamica de dados.
+    data_request = request.json()
+    print(data_request)
+
+    ingest_data2db= TksRequest(channelid=1293177)
     return jsonify(api_payload)
 
 @bp.route('/read', methods=['GET'])
