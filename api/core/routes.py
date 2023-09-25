@@ -22,7 +22,7 @@ api_payload_get = {
 @bp.route('/ingest', methods=['POST'])
 def ingest():
     #TODO: Realizar a implementação da lógica para a captura dinamica de dados.
-    data_request = request.json()
+    data_request = request.data
     print(data_request)
 
     ingest_data2db= TksRequest(channelid=1293177)
